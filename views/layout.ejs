@@ -21,6 +21,9 @@
       
     -->
 
+    <link href="/styles/reset.css" type="text/stylesheet" rel="stylesheet">
+    <link href="/styles/app.common.css" type="text/stylesheet" rel="stylesheet">
+
     <!--
 
       Support for LESS included by default
@@ -38,7 +41,12 @@
   <body>
 
     <!-- Include the view file for the current controller/route -->
-    <%- body %>
+
+    <div class="main-container">
+
+      <%- body %>
+
+    </div><!-- end main-container -->
 
 
     <!--
@@ -58,9 +66,15 @@
     <!-- listen on socket.io for incoming messages -->
     <script type="text/javascript" src="/js/app.js"></script>
 
-    <!-- Your scripts here? -->
-    <!-- Your scripts here? -->
-    <!-- Your scripts here? -->
+
+    <!-- Libraries -->
+    <script type="text/javascript" src="/js/lib/jquery-1.11.0.min.js"></script>    
+    <script type="text/javascript" src="/js/lib/fabric-1.4.0.min.js"></script>    
+
+    <!-- Application Javascript -->
+    <script type="text/javascript" src="/js/app/app.domready.js"></script>    
+
+    
 
 
     <!--
@@ -75,7 +89,7 @@
 
     -->
 
-
+    <script type="text/javascript" src="/js/app.js"></script>
 
     <!--
 
