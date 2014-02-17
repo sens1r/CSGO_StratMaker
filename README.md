@@ -1,0 +1,2 @@
+# StratMaker
+### a Sails application
