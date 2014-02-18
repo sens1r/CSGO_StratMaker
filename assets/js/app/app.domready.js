@@ -14,17 +14,16 @@ $(document).ready(
 				canvas.freeDrawingBrush.color = '#64FF4F';
 				ctx.freeDrawingLineWidth = 10;
 
-				var fbFontColor = '#fff',
-					fbFontFamily = 'Arial',
+				var fbFontFamily = 'Arial',
 					fbFontSize = 12,
 					fbFontLeftPos = 20;
 
 				// Set Text
-				var player1 = new fabric.Text('Player 1', { fontFamily: fbFontFamily, fontSize: fbFontSize, fill: '#fff', left: 20, top: 100 }),
-					player2 = new fabric.Text('Player 2', { fontFamily: fbFontFamily, fontSize: fbFontSize, fill: fbFontColor, left: fbFontLeftPos, top: 120 }),
-					player3 = new fabric.Text('Player 3', { fontFamily: fbFontFamily, fontSize: fbFontSize, fill: fbFontColor, left: fbFontLeftPos, top: 140 }),
-					player4 = new fabric.Text('Player 4', { fontFamily: fbFontFamily, fontSize: fbFontSize, fill: fbFontColor, left: fbFontLeftPos, top: 160 }),
-					player5 = new fabric.Text('Player 5', { fontFamily: fbFontFamily, fontSize: fbFontSize, fill: fbFontColor, left: fbFontLeftPos, top: 180 });
+				var player1 = new fabric.Text('Player 1', { fontFamily: fbFontFamily, fontSize: fbFontSize, fill: '#64ff4f', left: 20, top: 100 }),
+					player2 = new fabric.Text('Player 2', { fontFamily: fbFontFamily, fontSize: fbFontSize, fill: '#4fdfff', left: fbFontLeftPos, top: 120 }),
+					player3 = new fabric.Text('Player 3', { fontFamily: fbFontFamily, fontSize: fbFontSize, fill: '#754fff', left: fbFontLeftPos, top: 140 }),
+					player4 = new fabric.Text('Player 4', { fontFamily: fbFontFamily, fontSize: fbFontSize, fill: '#ff4fdf', left: fbFontLeftPos, top: 160 }),
+					player5 = new fabric.Text('Player 5', { fontFamily: fbFontFamily, fontSize: fbFontSize, fill: '#ff0000', left: fbFontLeftPos, top: 180 });
 
 				canvas.add(player1, player2, player3, player4, player5);
 		};			
