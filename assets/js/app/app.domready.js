@@ -36,39 +36,47 @@ $(document).ready(
 
 		$('.save-canvas').click(function(e) {			
 			var dataUrl = canvas.toDataURL();
+
+			var dataUrlStripped = dataUrl.replace(/^data:image\/png;base64,/, "");
+
 			// $('.data-url textarea').val(dataUrl);
 			// $('.data-url').show();
 
-			$.ajax({
-				url: '/createimage/generate',
-				dataType: 'JSON',
-				type:'POST',
-				data: { image: dataUrl },
-				success: function(data) {
-					sendToImgur(data.image);
-				},
-				error: function() {
-					alert('Upload Failed');
-				}
-			});
+			// $.ajax({
+			// 	url: '/createimage/generate',
+			// 	dataType: 'JSON',
+			// 	type:'POST',
+			// 	data: { image: dataUrl },
+			// 	success: function(data) {
+			// 		sendToImgur(data.image);
+			// 	},
+			// 	error: function() {
+			// 		alert('Upload Failed');
+			// 	}
+			// });
+
+			sendToImgur(dataUrlStripped);
 		});
 
 		var sendToImgur = function(image) {
-			var imagePath = window.location.origin + '/images/uploads/' + image;
-			console.log(imagePath);
+			// var imagePath = window.location.origin + '/images/uploads/' + image;
+			// console.log(imagePath);
 
 		    $.ajax({
-		      url: 'https://api.imgur.com/3/image',
+		      url: 'https://api.imgur.com/3/upload',
 		      method: 'POST',
 		      headers: {
 		      	Authorization: authorization,
 		        Accept: 'application/json'
 		      },
+		      dataType: 'json',
 		      data: {
-		        image: imagePath
+		        image: image,
+		        type: 'base64'
 		      },
-		      success: function(result) {
-		        console.log(result);
+		      success: function(data) {
+				$('.data-url textarea').val(data.data.link);
+				$('.data-url').show();		        
 		      }
 		    });
 		};

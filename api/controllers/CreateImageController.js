@@ -33,7 +33,7 @@ module.exports = {
       // strip off the data: url prefix to get just the base64-encoded bytes
       var data = img.replace(/^data:image\/png;base64,/, "");
       var buf = new Buffer(data, 'base64');
-      fs.writeFile('assets/images/uploads/' + imageName, buf, function(err) {
+      fs.writeFile('assets/images/uploads/' + imageName, buf, 'binary', function(err) {
         if (!err) {
             var response = {
                   result: 'success',
