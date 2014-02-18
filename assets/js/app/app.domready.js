@@ -54,7 +54,7 @@ $(document).ready(
 		});
 
 		var sendToImgur = function(image) {
-			var imagePath = window.location.origin + '/assets/images/uploads/' + image;
+			var imagePath = window.location.origin + '/images/uploads/' + image;
 			console.log(imagePath);
 
 		    $.ajax({
