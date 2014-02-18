@@ -12,8 +12,8 @@ $(document).ready(
 			canvas.setWidth(1024);
 			canvas.isDrawingMode = true;
 			canvas.freeDrawingBrush.color = '#64FF4F';
-			ctx.freeDrawingLineWidth = 10;
 			addPlayerText();
+			addCounterTerrorists();
 		};		
 
 		var addPlayerText = function() {
@@ -31,6 +31,26 @@ $(document).ready(
 			canvas.add(player1, player2, player3, player4, player5);
 		};
 
+		$('.add-ct').click(function() {
+			addCounterTerrorists();
+		});
+
+		var addCounterTerrorists = function() {
+			canvas.add(
+			    new fabric.Circle({ 
+			    	radius: 7,
+			    	top: 100, 
+			    	left: 900, 
+			    	lockScalingX: true,
+			    	lockScalingY: true,
+			    	fill: '#0008FF'
+			    })
+			);	
+
+			canvas.isDrawingMode = false;			    	
+
+		};
+
 		var changeMapBackground = function(mapFile) {
 			mapPath = '/images/' + mapFile + '.jpg';
 			canvas.setBackgroundImage(mapPath, canvas.renderAll.bind(canvas));
@@ -42,7 +62,6 @@ $(document).ready(
 			var mapName = $(this).val();
 			$(this).blur();
 			canvas.clear();
-
 			changeMapBackground(mapName);
 		});
 
@@ -54,36 +73,16 @@ $(document).ready(
 
 		$('.save-canvas').click(function(e) {			
 			var dataUrl = canvas.toDataURL();
-
 			var dataUrlStripped = dataUrl.replace(/^data:image\/png;base64,/, "");
-
-			// $('.data-url textarea').val(dataUrl);
-			// $('.data-url').show();
-
-			// $.ajax({
-			// 	url: '/createimage/generate',
-			// 	dataType: 'JSON',
-			// 	type:'POST',
-			// 	data: { image: dataUrl },
-			// 	success: function(data) {
-			// 		sendToImgur(data.image);
-			// 	},
-			// 	error: function() {
-			// 		alert('Upload Failed');
-			// 	}
-			// });
-
 			sendToImgur(dataUrlStripped);
 		});
 
 		$('.players button').click(function(e) {
 			canvas.freeDrawingBrush.color = '#' + $(this).data('color');
+			canvas.isDrawingMode = true;
 		});
 
 		var sendToImgur = function(image) {
-			// var imagePath = window.location.origin + '/images/uploads/' + image;
-			// console.log(imagePath);
-
 		    $.ajax({
 		      url: 'https://api.imgur.com/3/upload',
 		      method: 'POST',
