@@ -47,8 +47,9 @@ $(document).ready(
 		});
 
 		// Clear Canvas of paths
-		$('.clear-canvas').click(function(e) {
+		$('.clear-canvas').click(function(e) {			
 			canvas.clear();
+			addPlayerText();
 		});	
 
 		$('.save-canvas').click(function(e) {			
