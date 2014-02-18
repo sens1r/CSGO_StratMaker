@@ -75,8 +75,9 @@ $(document).ready(
 		        type: 'base64'
 		      },
 		      success: function(data) {
-				$('.data-url textarea').val(data.data.link);
-				$('.data-url').show();		        
+				$('header a').attr('href', data.data.link);
+				$('header a').text(data.data.link);
+				$('header a').show();
 		      }
 		    });
 		};
