@@ -11,8 +11,22 @@ $(document).ready(
 				canvas.setHeight(768);
 				canvas.setWidth(1024);
 				canvas.isDrawingMode = true;
-				canvas.freeDrawingColor = 'c500ae';
-				canvas.freeDrawingLineWidth = 10;
+				canvas.freeDrawingBrush.color = '#64FF4F';
+				ctx.freeDrawingLineWidth = 10;
+
+				var fbFontColor = '#fff',
+					fbFontFamily = 'Arial',
+					fbFontSize = 12,
+					fbFontLeftPos = 20;
+
+				// Set Text
+				var player1 = new fabric.Text('Player 1', { fontFamily: fbFontFamily, fontSize: fbFontSize, fill: '#fff', left: 20, top: 100 }),
+					player2 = new fabric.Text('Player 2', { fontFamily: fbFontFamily, fontSize: fbFontSize, fill: fbFontColor, left: fbFontLeftPos, top: 120 }),
+					player3 = new fabric.Text('Player 3', { fontFamily: fbFontFamily, fontSize: fbFontSize, fill: fbFontColor, left: fbFontLeftPos, top: 140 }),
+					player4 = new fabric.Text('Player 4', { fontFamily: fbFontFamily, fontSize: fbFontSize, fill: fbFontColor, left: fbFontLeftPos, top: 160 }),
+					player5 = new fabric.Text('Player 5', { fontFamily: fbFontFamily, fontSize: fbFontSize, fill: fbFontColor, left: fbFontLeftPos, top: 180 });
+
+				canvas.add(player1, player2, player3, player4, player5);
 		};			
 
 		var changeMapBackground = function(mapFile) {
@@ -56,6 +70,10 @@ $(document).ready(
 			// });
 
 			sendToImgur(dataUrlStripped);
+		});
+
+		$('.players button').click(function(e) {
+			canvas.freeDrawingBrush.color = '#' + $(this).data('color');
 		});
 
 		var sendToImgur = function(image) {

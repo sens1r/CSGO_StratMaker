@@ -79,9 +79,13 @@ border-top-right-radius: 10px;
 	margin: 0 auto;
 }
 
+.canvas-container {
+	position: relative;
+}
+
 header.controls {
 	width: 100%;
-	margin-top:50px;
+	margin-top: 50px;
 }
 
 select {
@@ -91,8 +95,34 @@ select {
 
 button {
 	height: 30px;
+	cursor: pointer
 }
 
 button.save-canvas {
-	float:right;
+	float: right;
 }
+
+.players {
+	position: absolute;
+	top: 102px;
+	left: 80px;
+	z-index: 999;
+}
+
+ul li {
+	list-style: none;
+}
+
+.players button {
+	height: 12px;
+	width: 10px;
+	margin-bottom: 6px;
+	border: 0;
+	outline: 0;
+}
+
+.player-1 { background: #64FF4F;}
+.player-2 { background: #4FDFFF;}
+.player-3 { background: #754FFF;}
+.player-4 { background: #FF4FDF;}
+.player-5 { background: #FF0000;}
